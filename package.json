@@ -11,5 +11,10 @@
   "devDependencies": {
     "typescript": "~5.9.3",
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@kingkongdevs/vite-plugin-html-includes": "^1.0.5",
+    "bootstrap": "^5.3.8",
+    "jquery": "^4.0.0"
   }
 }
