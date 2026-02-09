@@ -1,17 +1,33 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    <title>vite-project</title>
-  </head>
-  <body>
-    <div id="app">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <title>vite-project</title>
+</head>
+
+<body>
+  <div id="app">
+    <include src="header.html">
+    <include src="about_course.html">
+    <include src="materials.html">
+    <include src="tariffs.html">
+    <include src="faq.html">
+    <include src="footer.html">
+  <!-- <div id="header"></div>
+      <div id="about_course"></div>
+      <div id="materials"></div>
+      <div id="tariffs"></div>
+      <div id="faq"></div>
+      <div id="footer"></div> -->
       <div class="text-primary" style="font-size: 26px;">Курс</div>
-    </div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
+
