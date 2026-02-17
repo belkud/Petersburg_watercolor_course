@@ -64,7 +64,7 @@ body {
     }
   
     .stat-block {
-      background: url(/public/d.png);
+      background: url(/d.png);
       background-size: cover;
       border: 5px solid #ecbf7c;
       transition: all 0.3s ease;
