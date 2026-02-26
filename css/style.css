@@ -111,3 +111,53 @@ body {
   background-position: center !important;
   background-repeat: no-repeat !important;
 }
+
+
+    .uppercase {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  
+    .btn-sidebar {
+      /* position: fixed; */
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1030;
+      width: 250px;
+      text-orientation: mixed;
+      border-radius: 5px;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, #ff9800, #e65100);
+      color: white !important;
+      border: none;
+    }
+  
+    .btn-sidebar:hover {
+      transform: translateY(-50%) scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+      background: linear-gradient(135deg, #ffb74d, #f57c00);
+    }
+  
+    .btn_bought {
+      background: linear-gradient(135deg, #ff9800, #e65100);
+      color: white;
+      font-size: 0.9em;
+      text-transform: uppercase;
+    }
+  
+    .bg-image-section,
+    .tariff-image-section,
+    .target-audience-section {
+      background-image: url(/bg\ head.jpg) !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+    }
+
+
+
+    
