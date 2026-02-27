@@ -3,9 +3,11 @@ $(document).ready(function () {
     initApp();
 
     function initApp() {
-        // Список материалов
-        initMaterialsList();
+// Список материалов
+initMaterialsList();
 
+// Валюты
+initCurrency();
     }
 
     function initMaterialsList() {
@@ -29,5 +31,36 @@ $(document).ready(function () {
             });
         }
     }
+function initCurrency() {
 
+    $('.card').each(function() {
+        const priceElement = $(this).find('.price-new');
+        const originalText = priceElement.text().trim();
+        $(this).data('original-price', originalText);
+        
+        $(this).find('.currency-btn').first().addClass('active');
+    });
+
+
+
+
+    // Обработка кнопок валют
+    
+    $('.currency-btn').on('click', function() {
+        const card = $(this).closest('.card');
+        const priceElement = card.find('.price-new');
+        const originalPrice = card.data('original-price');
+        const isDollar = $(this).find('svg.bi-currency-dollar').length > 0;
+
+        if (isDollar) {
+            const priceInRubles = parseFloat(originalPrice.replace(/[^\d.]/g, ''));
+            const priceInDollars = (priceInRubles / 70).toFixed(2);
+            priceElement.text(`${priceInDollars} $`);
+        } else {
+            priceElement.text(originalPrice);
+        }
+        card.find('.currency-btn').removeClass('active');
+        $(this).addClass('active');
+    });
+}
 });
