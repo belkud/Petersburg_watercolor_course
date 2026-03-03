@@ -25,6 +25,33 @@ body {
       box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
     }
   
+.collapsing {
+    transition: height 0.35s ease;
+}
+
+.navbar-collapse {
+    transition: all 0.35s ease;
+}
+
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 10px 0;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 8px 12px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 152, 0, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
     section {
       padding: 80px 0;
       scroll-margin-top: 80px;
@@ -432,6 +459,8 @@ body {
 }
 
 
+
+
  @media (min-width: 1200px) {
         .container_materials {
             max-width: 1200px;
@@ -439,6 +468,30 @@ body {
     }
 
     @media (max-width: 992px) {
+    .navbar-nav {
+        margin-left: 30px !important;
+    }
+    
+    .nav-link {
+        color: #333;
+        font-weight: 500;
+        padding: 8px 15px !important;
+        transition: color 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        color: #ff9800 !important;
+    }
+    
+    .nav-link.active {
+        color: #ff9800 !important;
+        font-weight: bold;
+    }
+    
+    .social-desktop {
+        display: flex !important;
+    }
+}
     .materials {
             margin: 0;
         }
@@ -448,7 +501,6 @@ body {
             padding: 40px !important;
             padding-top: 0px !important;
         }
-    }
 
 @media (max-width: 768px) {
   
@@ -524,3 +576,91 @@ body {
             font-size: 0.9rem;
         }
     }
+
+    /* Стили для мобильного меню */
+@media (max-width: 991.98px) {
+    /* Основные стили для выпадающего списка */
+    .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 2px solid #ff9800;
+        border-radius: 0 0 10px 10px;
+    }
+    
+    /* Стили для списка ссылок */
+    .navbar-nav {
+        width: 100%;
+        margin: 0 !important;
+        padding: 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+        margin: 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-link {
+        padding: 12px 15px !important;
+        font-size: 16px;
+        font-weight: 500;
+        color: #333;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .nav-link:hover {
+        background-color: #fff3e0;
+        color: #ff9800 !important;
+        padding-left: 20px !important;
+    }
+    
+    .nav-link.active {
+        color: #ff9800 !important;
+        font-weight: bold;
+    }
+    
+    .nav-link.active::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background-color: #ff9800;
+    }
+    
+    /* Социальные кнопки в мобильном меню */
+    .social-desktop {
+        display: none !important;
+    }
+    
+    /* Добавляем социальные кнопки в конец выпадающего списка */
+    .navbar-collapse .d-flex.social-desktop {
+        display: flex !important;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #f0f0f0;
+        justify-content: center;
+    }
+    
+    /* Стили для кнопок в мобильной версии */
+    .btn-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+}
+
+ 
+
+

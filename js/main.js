@@ -81,27 +81,57 @@ function initCurrency() {
     });
 }
 
-  function initNavigation() {
+function initNavigation() {
+    // Плавный скролл к якорям
     $('a.nav-link, .btn-warning').on('click', function(e) {
-      if (this.hash !== '') {
-        e.preventDefault();
-        const hash = this.hash;
-        $('html, body').animate({
-          scrollTop: $(hash).offset().top - 70
-        }, 800);
-      }
+        if (this.hash !== '' && $(this.hash).length) {
+            e.preventDefault();
+            const hash = this.hash;
+            
+            // Закрываем меню после клика (для мобильных)
+            if ($('.navbar-toggler').is(':visible')) {
+                $('#navbarMain').collapse('hide');
+            }
+            
+            $('html, body').animate({
+                scrollTop: $(hash).offset().top - 80
+            }, 800, function() {
+                window.location.hash = hash;
+            });
+        }
     });
 
+    // Подсветка активного пункта меню
     $(window).on('scroll', function() {
-      let scrollPos = $(document).scrollTop() + 100;
-      $('a.nav-link').each(function() {
-        let currLink = $(this);
-        let refElement = $(currLink.attr('href'));
-        if (refElement.length && refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
-          $('a.nav-link').removeClass('active font-weight-bold');
-          currLink.addClass('active font-weight-bold');
-        }
-      });
+        let scrollPos = $(document).scrollTop() + 100;
+        $('a.nav-link').each(function() {
+            let currLink = $(this);
+            let refElement = $(currLink.attr('href'));
+            if (refElement.length && refElement.position().top <= scrollPos && 
+                refElement.position().top + refElement.height() > scrollPos) {
+                $('a.nav-link').removeClass('active font-weight-bold');
+                currLink.addClass('active font-weight-bold');
+            }
+        });
     });
-  }
+    
+    // Закрытие меню при клике вне его
+    $(document).on('click', function(e) {
+        if ($('.navbar-toggler').is(':visible') && 
+            !$(e.target).closest('.navbar').length &&
+            $('#navbarMain').hasClass('show')) {
+            $('#navbarMain').collapse('hide');
+        }
+    });
+
+    $('#navbarMain').on('show.bs.collapse', function() {
+        $(this).addClass('showing');
+    }).on('shown.bs.collapse', function() {
+        $(this).removeClass('showing').addClass('show');
+    }).on('hide.bs.collapse', function() {
+        $(this).addClass('hiding');
+    }).on('hidden.bs.collapse', function() {
+        $(this).removeClass('hiding show');
+    });
+}
 });
