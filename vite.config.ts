@@ -2,7 +2,7 @@
 import viteHTMLIncludes from '@kingkongdevs/vite-plugin-html-includes';
 
 export default {
-    base: '/School_of_drawing/',
+    base: '/Petersburg_watercolor_course/',
     plugins: [
         viteHTMLIncludes({
             componentsDir: '/components/',
